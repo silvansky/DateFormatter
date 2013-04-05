@@ -15,3 +15,5 @@ echo "Running tests..."
 runTest StringListTest.h "StringList.cpp"
 
 runTest ExceptionTest.h "Exception.cpp"
+
+runTest InputParserTest.h "StringList.cpp InputParser.cpp"
