@@ -8,7 +8,13 @@ rm -f main.o
 
 OBJECTS=$(ls *.o)
 
-./cxxtest/bin/cxxtestgen --have-std --runner=ErrorPrinter --headers=cxxtest-headers -o runner.cpp
+HEADERS_FILE=cxxtest-headers
+
+rm -f ${HEADERS_FILE}
+
+ls -1 *Test.h > ${HEADERS_FILE}
+
+./cxxtest/bin/cxxtestgen --have-std --runner=ErrorPrinter --headers=${HEADERS_FILE} -o runner.cpp
 
 clang -I./cxxtest -std=c++11 -lstdc++ -o testrunner runner.cpp $OBJECTS
 
