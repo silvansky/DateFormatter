@@ -1,5 +1,5 @@
 CC=clang
-OPTS=-Wall -pedantic
+OPTS=-Wall -pedantic -std=c++11
 LIBS=-lstdc++
 SOURCES=$(wildcard *.cpp)
 OBJECTS=$(SOURCES:.cpp=.o)
@@ -15,10 +15,10 @@ $(APPFILE): $(OBJECTS)
 	$(CC) -c $(OPTS) $<
 
 clean:
-	rm $(APPFILE) $(OBJECTS)
+	rm -f $(APPFILE) $(OBJECTS)
 
 install:
 	cp $(APPFILE) /usr/local/bin/
 
 uninstall:
-	rm /usr/local/bin/$(APPFILE)
+	rm -f /usr/local/bin/$(APPFILE)

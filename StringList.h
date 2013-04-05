@@ -4,10 +4,11 @@
 #include <list>
 #include <string>
 
-class StringList : std::list<std::string>
+class StringList : public std::list<std::string>
 {
 public:
 	std::string join(const std::string &separator);
+	void printContents();
 };
 
 #endif //STRINGLIST_H
