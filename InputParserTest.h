@@ -7,6 +7,7 @@ class InputParserTest : public CxxTest::TestSuite
 public:
 	void testParseInputString()
 	{
+		TS_TRACE("Starting InputParser::parseInputString test");
 		InputParser parser;
 		StringList list;
 		parser.parseInputString("one two three", list);
@@ -19,5 +20,6 @@ public:
 		parser.parseInputString("single", list);
 		TS_ASSERT_EQUALS(list.size(), 1);
 		TS_ASSERT_EQUALS(list.front().compare("single"), 0);
+		TS_TRACE("Finishing InputParser::parseInputString test");
 	}
 };

@@ -1,19 +1,17 @@
 #!/bin/sh
 
-GEN="./cxxtest/bin/cxxtestgen --error-printer -o runner.cpp"
+rm -f runner.cpp
 
-function runTest
-{
-	echo "Testing $1"
-	$GEN $1
-	clang -I./cxxtest -std=c++11 -lstdc++ -o testrunner runner.cpp $2
-	./testrunner
-}
+make
 
-echo "Running tests..."
+rm -f main.o
 
-runTest StringListTest.h "StringList.cpp"
+OBJECTS=$(ls *.o)
 
-runTest ExceptionTest.h "Exception.cpp"
+./cxxtest/bin/cxxtestgen --have-std --runner=ErrorPrinter --headers=cxxtest-headers -o runner.cpp
 
-runTest InputParserTest.h "StringList.cpp InputParser.cpp"
+clang -I./cxxtest -std=c++11 -lstdc++ -o testrunner runner.cpp $OBJECTS
+
+./testrunner -v
+
+rm -f runner.cpp
