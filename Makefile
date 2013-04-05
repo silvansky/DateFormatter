@@ -6,6 +6,8 @@ OBJECTS=$(SOURCES:.cpp=.o)
 
 APPFILE=dateformatter
 
+TESTRUNNER=runtest.sh
+
 all: $(APPFILE)
 
 $(APPFILE): $(OBJECTS)
@@ -22,3 +24,6 @@ install:
 
 uninstall:
 	rm -f /usr/local/bin/$(APPFILE)
+
+tests:
+	./$(TESTRUNNER)	

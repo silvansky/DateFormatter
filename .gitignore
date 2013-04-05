@@ -1,2 +1,4 @@
 *.o
 dateformatter
+testrunner
+runner.cpp
