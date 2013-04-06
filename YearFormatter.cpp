@@ -17,9 +17,9 @@ std::string YearFormatter::formatNumber(const std::string &formatString, int num
 {
 	std::stringstream stream;
 
-	bool longYearFormat = (formatString.compare("YYYY") == 0);
+	bool longYearFormat = (formatString == "YYYY");
 
-	if ((formatString.compare("YY") != 0) && !longYearFormat)
+	if ((formatString != "YY") && !longYearFormat)
 	{
 		stream << "DayFormatter::formatNumber: wrong format: " << formatString;
 		throw (Exception(stream.str()));
@@ -28,7 +28,7 @@ std::string YearFormatter::formatNumber(const std::string &formatString, int num
 	stream << std::right;
 	stream << std::setw(longYearFormat ? 4 : 2);
 	stream << std::setfill('0');
-	stream << number;
+	stream << (longYearFormat ? number : number % 100);
 	return stream.str();
 }
 

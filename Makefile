@@ -26,4 +26,7 @@ uninstall:
 	rm -f /usr/local/bin/$(APPFILE)
 
 tests:
-	./$(TESTRUNNER)	
+	./$(TESTRUNNER)
+
+tests-verbose:
+	./$(TESTRUNNER)	-v

@@ -18,6 +18,6 @@ ls -1 *Test.h > ${HEADERS_FILE}
 
 clang -I./cxxtest -std=c++11 -lstdc++ -o testrunner runner.cpp $OBJECTS
 
-./testrunner -v
+./testrunner $@
 
-rm -f runner.cpp
+rm -f runner.cpp ${HEADERS_FILE}

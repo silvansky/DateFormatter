@@ -1,9 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "InputParser.h"
-#include "FormatterFactory.h"
-#include "Formatter.h"
+#include "DatePrinter.h"
 
 void printUsage()
 {
@@ -36,34 +34,17 @@ int main(int argc, char const *argv[])
 	std::string input = std::string(argv[1]);
 	std::string separator = std::string(argv[2]);
 
-	InputParser parser;
-	StringList formatList;
-	parser.parseInputString(input, formatList);
-
-	FormatterFactory factory;
-
-	StringList resultingFormats;
-	time_t currentTime;
-	time(&currentTime);
-
-	StringList::const_iterator it = formatList.begin();
-	while (it != formatList.end())
+	DatePrinter printer;
+	try
 	{
-		FormatterPtr formatter = factory.createFormatter(*it);
-		try
-		{
-			std::cout << "Formatting \"" << *it << "\" with formatter: " << formatter.get()->name() << std::endl;
-			resultingFormats.push_back(formatter.get()->formatDate(*it, currentTime));
-		}
-		catch (Exception &e)
-		{
-			std::cout << "Formatter exception: " << e.what() << std::endl;
-		}
-		it++;
+		std::string s = printer.stringFromCurrentDate(input, separator);
+		std::cout << s << std::endl;
 	}
-
-	std::string resultingString = resultingFormats.join(separator);
-	std::cout << resultingString << std::endl;
+	catch (Exception &e)
+	{
+		std::cout << "DatePrinter exception: " << e.what() << std::endl;
+		return 2;
+	}
 
 	return 0;
 }

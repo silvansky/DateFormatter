@@ -12,14 +12,14 @@ public:
 		StringList list;
 		parser.parseInputString("one two three", list);
 		TS_ASSERT_EQUALS(list.size(), 3);
-		TS_ASSERT_EQUALS(list.front().compare("one"), 0);
-		TS_ASSERT_EQUALS(list.back().compare("three"), 0);
+		TS_ASSERT_EQUALS(list.front(), "one");
+		TS_ASSERT_EQUALS(list.back(), "three");
 		list.pop_back();
-		TS_ASSERT_EQUALS(list.back().compare("two"), 0);
+		TS_ASSERT_EQUALS(list.back(), "two");
 
 		parser.parseInputString("single", list);
 		TS_ASSERT_EQUALS(list.size(), 1);
-		TS_ASSERT_EQUALS(list.front().compare("single"), 0);
+		TS_ASSERT_EQUALS(list.front(), "single");
 		TS_TRACE("Finishing InputParser::parseInputString test");
 	}
 };

@@ -27,9 +27,9 @@ std::string MonthFormatter::formatNumber(const std::string &formatString, int nu
 {
 	std::stringstream stream;
 
-	bool longMonthFormat = (formatString.compare("MMM") == 0);
+	bool longMonthFormat = (formatString == "MMM");
 
-	if ((formatString.compare("MM") != 0) && !longMonthFormat)
+	if ((formatString != "MM") && !longMonthFormat)
 	{
 		stream << "DayFormatter::formatNumber: wrong format: " << formatString;
 		throw (Exception(stream.str()));

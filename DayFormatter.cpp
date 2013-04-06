@@ -16,7 +16,7 @@ std::string DayFormatter::formatNumber(const std::string &formatString, int numb
 {
 	std::stringstream stream;
 
-	if (formatString.compare("DD") != 0)
+	if (formatString != "DD")
 	{
 		stream << "DayFormatter::formatNumber: wrong format: " << formatString;
 		throw (Exception(stream.str()));
