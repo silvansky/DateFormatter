@@ -12,7 +12,7 @@ DatePartFormatterFactory::~DatePartFormatterFactory()
 {
 }
 
-DatePartFormatterPtr DatePartFormatterFactory::createDatePartFormatter(const std::string &format)
+DatePartFormatterPtr DatePartFormatterFactory::createDatePartFormatter(const std::string &format) throw()
 {
 	char firstCharacter = format[0];
 	DatePartFormatterPtr ptr;
@@ -26,6 +26,8 @@ DatePartFormatterPtr DatePartFormatterFactory::createDatePartFormatter(const std
 			break;
 		case 'Y':
 			ptr.reset(new YearFormatter());
+			break;
+		default:
 			break;
 	}
 	return ptr;

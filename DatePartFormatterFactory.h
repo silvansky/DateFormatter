@@ -13,7 +13,7 @@ public:
 	DatePartFormatterFactory();
 	~DatePartFormatterFactory();
 
-	DatePartFormatterPtr createDatePartFormatter(const std::string &format);
+	DatePartFormatterPtr createDatePartFormatter(const std::string &format) throw();
 };
 
 #endif //DATEPARTFORMATTERFACTORY_H
