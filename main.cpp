@@ -17,7 +17,7 @@ void printUsage()
 			<< "All patterns must be separated by single space." << std::endl
 			<< std::endl
 			<< "Example:" << std::endl
-			<< "    dateformatter \"DD MMM YY\" \"-\" " << std::endl
+			<< "    dateformatter \"DD MMM YY\" \"-\"" << std::endl
 			<< "Output:" << std::endl
 			<< "    05-Apr-13" << std::endl
 			<< std::endl;
