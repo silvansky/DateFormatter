@@ -22,3 +22,5 @@ Unit tests based on CxxTest also included. To run them you can run these command
 make tests / ./runtests.sh - just run tests and print out a success rate.
 
 make tests-verbose / ./runtests.sh -v - run tests and print out a success rate and some tracing information.
+
+The source code of DateFormatter is distributed under [MIT License](http://en.wikipedia.org/wiki/MIT_License). See file LICENSE for more information.
