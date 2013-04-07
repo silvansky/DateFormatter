@@ -1,25 +1,24 @@
-#include "DatePrinter.h"
+#include "DateFormatter.h"
 
 #include "FormatterFactory.h"
-#include "InputParser.h"
-#include "Formatter.h"
+#include "DatePartFormatter.h"
+#include "StringList.h"
 
 #include <iostream>
 
-std::string DatePrinter::stringFromDate(time_t date, const std::string &format, const std::string &separator) throw(Exception &)
+std::string DateFormatter::stringFromDate(time_t date, const std::string &format, const std::string &separator) throw(Exception &)
 {
-	InputParser parser;
 	FormatterFactory factory;
 
-	StringList formatList;
-	parser.parseInputString(format, formatList);
+	StringList formatList(format, ' ');
 
 	StringList resultingFormats;
 
 	StringList::const_iterator it = formatList.begin();
+
 	while (it != formatList.end())
 	{
-		FormatterPtr formatter = factory.createFormatter(*it);
+		DatePartFormatterPtr formatter = factory.createFormatter(*it);
 		if (!formatter)
 		{
 			throw(Exception("Unknown format: " + *it));
@@ -40,7 +39,7 @@ std::string DatePrinter::stringFromDate(time_t date, const std::string &format, 
 	return resultingFormats.join(separator);
 }
 
-std::string DatePrinter::stringFromCurrentDate(const std::string &format, const std::string &separator) throw(Exception &)
+std::string DateFormatter::stringFromCurrentDate(const std::string &format, const std::string &separator) throw(Exception &)
 {
 	time_t currentTime;
 	time(&currentTime);

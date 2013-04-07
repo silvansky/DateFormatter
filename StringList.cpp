@@ -1,6 +1,17 @@
 #include "StringList.h"
 
 #include <iostream>
+#include <sstream>
+
+StringList::StringList(const std::string &input, char delim)
+{
+	std::stringstream stream(input);
+	std::string item;
+	while (std::getline(stream, item, delim))
+	{
+		push_back(item);
+	}
+}
 
 std::string StringList::join(const std::string &separator)
 {

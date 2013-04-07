@@ -6,18 +6,16 @@
 
 FormatterFactory::FormatterFactory()
 {
-
 }
 
 FormatterFactory::~FormatterFactory()
 {
-
 }
 
-FormatterPtr FormatterFactory::createFormatter(std::string format)
+DatePartFormatterPtr FormatterFactory::createFormatter(const std::string &format)
 {
 	char firstCharacter = format[0];
-	FormatterPtr ptr;
+	DatePartFormatterPtr ptr;
 	switch (firstCharacter)
 	{
 		case 'D':

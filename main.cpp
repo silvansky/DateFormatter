@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 
-#include "DatePrinter.h"
+#include "DateFormatter.h"
 
 void printUsage()
 {
@@ -34,15 +34,15 @@ int main(int argc, char const *argv[])
 	std::string input = std::string(argv[1]);
 	std::string separator = std::string(argv[2]);
 
-	DatePrinter printer;
+	DateFormatter dateFormatter;
 	try
 	{
-		std::string s = printer.stringFromCurrentDate(input, separator);
+		std::string s = dateFormatter.stringFromCurrentDate(input, separator);
 		std::cout << s << std::endl;
 	}
 	catch (Exception &e)
 	{
-		std::cout << "DatePrinter exception: " << e.what() << std::endl;
+		std::cout << "DateFormatter exception: " << e.what() << std::endl;
 		return 2;
 	}
 

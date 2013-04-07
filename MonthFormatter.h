@@ -1,10 +1,10 @@
 #ifndef MONTHFORMATTER_H
 #define MONTHFORMATTER_H
 
-#include "Formatter.h"
+#include "DatePartFormatter.h"
 #include <vector>
 
-class MonthFormatter : public Formatter
+class MonthFormatter : public DatePartFormatter
 {
 public:
 	MonthFormatter();

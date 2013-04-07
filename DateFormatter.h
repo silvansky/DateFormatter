@@ -1,14 +1,14 @@
-#ifndef DATEPRINTER_H
-#define DATEPRINTER_H
+#ifndef DATEFORMATTER_H
+#define DATEFORMATTER_H
 
 #include <string>
 #include "Exception.h"
 
-class DatePrinter
+class DateFormatter
 {
 public:
 	std::string stringFromDate(time_t date, const std::string &format, const std::string &separator) throw(Exception &);
 	std::string stringFromCurrentDate(const std::string &format, const std::string &separator) throw(Exception &);
 };
 
-#endif //DATEPRINTER_H
+#endif //DATEFORMATTER_H

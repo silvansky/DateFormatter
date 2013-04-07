@@ -4,8 +4,8 @@
 #include <string>
 #include <tr1/memory>
 
-class Formatter;
-typedef std::tr1::shared_ptr<Formatter> FormatterPtr;
+class DatePartFormatter;
+typedef std::tr1::shared_ptr<DatePartFormatter> DatePartFormatterPtr;
 
 class FormatterFactory
 {
@@ -13,7 +13,7 @@ public:
 	FormatterFactory();
 	~FormatterFactory();
 
-	FormatterPtr createFormatter(std::string format);
+	DatePartFormatterPtr createFormatter(const std::string &format);
 };
 
 #endif //FORMATTERFACTORY_H

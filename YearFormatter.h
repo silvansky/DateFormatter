@@ -1,9 +1,9 @@
 #ifndef YEARFORMATTER_H
 #define YEARFORMATTER_H
 
-#include "Formatter.h"
+#include "DatePartFormatter.h"
 
-class YearFormatter : public Formatter
+class YearFormatter : public DatePartFormatter
 {
 public:
 	YearFormatter();

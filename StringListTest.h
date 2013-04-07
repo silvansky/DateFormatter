@@ -5,6 +5,26 @@
 class StringListTestSuite : public CxxTest::TestSuite
 {
 public:
+	void testStringList()
+	{
+		TS_TRACE("Starting StringList::StringList test");
+
+		StringList list("one two three", ' ');
+		TS_ASSERT_EQUALS(list.size(), 3);
+		TS_ASSERT_EQUALS(list.front(), "one");
+		TS_ASSERT_EQUALS(list.back(), "three");
+		list.pop_back();
+		TS_ASSERT_EQUALS(list.back(), "two");
+
+		list = StringList("single", ' ');
+		TS_ASSERT_EQUALS(list.size(), 1);
+		TS_ASSERT_EQUALS(list.front(), "single");
+
+		list = StringList("", ' ');
+		TS_ASSERT_EQUALS(list.size(), 0);
+
+		TS_TRACE("Finishing StringList::StringList test");
+	}
 	void testJoin()
 	{
 		TS_TRACE("Starting StringList::join test");

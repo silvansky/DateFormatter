@@ -1,9 +1,9 @@
 #ifndef DAYFORMATTER_H
 #define DAYFORMATTER_H
 
-#include "Formatter.h"
+#include "DatePartFormatter.h"
 
-class DayFormatter : public Formatter
+class DayFormatter : public DatePartFormatter
 {
 public:
 	DayFormatter();
