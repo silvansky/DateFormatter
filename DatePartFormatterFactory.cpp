@@ -1,18 +1,18 @@
-#include "FormatterFactory.h"
+#include "DatePartFormatterFactory.h"
 
 #include "DayFormatter.h"
 #include "MonthFormatter.h"
 #include "YearFormatter.h"
 
-FormatterFactory::FormatterFactory()
+DatePartFormatterFactory::DatePartFormatterFactory()
 {
 }
 
-FormatterFactory::~FormatterFactory()
+DatePartFormatterFactory::~DatePartFormatterFactory()
 {
 }
 
-DatePartFormatterPtr FormatterFactory::createFormatter(const std::string &format)
+DatePartFormatterPtr DatePartFormatterFactory::createDatePartFormatter(const std::string &format)
 {
 	char firstCharacter = format[0];
 	DatePartFormatterPtr ptr;

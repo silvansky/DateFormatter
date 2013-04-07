@@ -4,7 +4,7 @@
 
 // test time: 1365266199
 
-class DayFormatterTest : public CxxTest::TestSuite 
+class DayFormatterTest : public CxxTest::TestSuite
 {
 private:
 	DayFormatter df;

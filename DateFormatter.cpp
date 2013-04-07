@@ -1,6 +1,6 @@
 #include "DateFormatter.h"
 
-#include "FormatterFactory.h"
+#include "DatePartFormatterFactory.h"
 #include "DatePartFormatter.h"
 #include "StringList.h"
 
@@ -8,7 +8,7 @@
 
 std::string DateFormatter::stringFromDate(time_t date, const std::string &format, const std::string &separator) throw(Exception &)
 {
-	FormatterFactory factory;
+	DatePartFormatterFactory factory;
 
 	StringList formatList(format, ' ');
 
@@ -18,7 +18,7 @@ std::string DateFormatter::stringFromDate(time_t date, const std::string &format
 
 	while (it != formatList.end())
 	{
-		DatePartFormatterPtr formatter = factory.createFormatter(*it);
+		DatePartFormatterPtr formatter = factory.createDatePartFormatter(*it);
 		if (!formatter)
 		{
 			throw(Exception("Unknown format: " + *it));
